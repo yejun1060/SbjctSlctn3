@@ -12,7 +12,8 @@
 
 
     등록하기
-    <form action="/v/insert">
+    <form action="/m/insert/" method="POST">
+        {% csrf_token %}
         학번: <input type="text" name="clsNum">
         <br>
         이름: <input type="text" name="name">
@@ -20,5 +21,6 @@
 
     </form>
 
+    <button onclick="location.href='../v'">목록</button >
 </body>
 </html>

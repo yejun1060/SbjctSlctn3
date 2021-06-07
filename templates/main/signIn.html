@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 페이지</title>
+</head>
+<body>
+    <form action="http://localhost:2028/m/2/" method="POST">
+        {% csrf_token %}
+        <input type="number" name="clsNum" placeholder="학번"> <br/>
+        <input type="text" name="name" placeholder="이름"> <br/>
+        <button type="button" onclick="buttonClick()">전송</button>
+        <button type="submit">로그인</button>
+    </form>
+
+    <script>
+        function getCookie(name) {
+        var cookieName = name + "=";
+
+        var x = 0;
+        while (x <= document.cookie.length) {
+        var y = (x + cookieName.length);
+
+        if (document.cookie.substring(x, y) == cookieName) {
+            if ((lastChrCookie = document.cookie.indexOf(";", y)) == -1)
+            lastChrCookie = document.cookie.length;
+            return decodeURI(document.cookie
+            .substring(y, lastChrCookie));
+        }
+        x = document.cookie.indexOf(" ", x) + 1;
+        if (x == 0)
+        break;
+        }
+        return "";
+        }
+
+        function buttonClick() {
+            var csrf_token = getCookie('csrftoken');
+            fetch("http://localhost:2028/m/3/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrf_token
+                },
+                body: JSON.stringify({
+                        clsNum: document.getElementsByName('clsNum').value,
+                        name: document.getElementsByName('name').value}),
+            }).then((response) => console.log(response));
+        }
+
+</script>
+</body>
+</html>

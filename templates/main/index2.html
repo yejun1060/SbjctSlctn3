@@ -22,17 +22,17 @@
         </thead>
 
         <tbody>
-            {% for v in value %}
             <tr>
-                <td>{{ v.id }}</td>
-                <td>{{ v.clsNum }}</td>
-                <td>{{ v.name }}</td>
+                <td>{{ value_list.0 }}</td>
+                <td>{{ value_list.1 }}</td>
+                <td>{{ value_list.2 }}</td>
             </tr>
-            {% endfor %}
+
 
         </tbody>
     </table>
     {% endblock table %}
 
+    <button onclick="location.href='../a'">작성</button >
 </body>
 </html>
