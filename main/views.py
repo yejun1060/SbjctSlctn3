@@ -30,7 +30,7 @@ def signUp(request):
                 clsNum=request.POST.get('clsNum'),
                 name=request.POST.get('name'),
                 pw=2828).save()
-            return JsonResponse({"msg": "successfully"}, status= 200)
+            return JsonResponse({"msg": "successfully"}, status=200)
 
         except BaseException as e:
             return JsonResponse({"msg": e}, status=400)
@@ -48,12 +48,13 @@ def signIn(request):
 def singInCheck(request):
     if request.method == "POST":
         try:
-            Account.objects.get(clsNum= request.POST.get("clsNum"))
+            Account.objects.get(clsNum=int(request.POST.get("clsNum")))
             return JsonResponse({"msg": "successfully"}, status=200)
 
-        except BaseException: return JsonResponse({"msg": "unknown value"}, status=400)
+        except BaseException:
+            return JsonResponse({"msg": "unknown value"}, status=400)
 
-    return JsonResponse({"msg": "wrong approach"}, status= 404)
+    return JsonResponse({"msg": "wrong approach"}, status=404)
 
 
 # function

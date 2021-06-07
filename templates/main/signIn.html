@@ -6,8 +6,9 @@
 </head>
 <body>
     <form action="http://localhost:2028/m/3" method="POST">
-        <input type="number" name="clsNum" placeholder="학번"> <br/>
-        <input type="text" name="name" placeholder="이름"> <br/>
+        <input type="number" name="clsNum" placeholder="학번">
+        <span id="msg" style="display: none;">시스템에 등록된 학번이 아닙니다.</span><br/>
+        <input type="text" name="name" placeholder="이름" id="name" style="display: none;"> <br/>
 
         <button type="submit">로그인</button>
     </form>
@@ -17,16 +18,19 @@
         function buttonClick() {
             fetch('http://localhost:2028/m/3', {
                 method: 'POST',
-                cache: 'no-cache',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
                 body: new URLSearchParams({
                     clsNum: 20810,
                 })
-            }).then((response) => response.json()).then((data) => {
-                console.log(data);
-            });
+            }).then((res) => {
+
+                if (res.status != 200) {
+                    document.getElementById("msg").style.display = "block";
+                }
+                else {
+                    document.getElementById("name").style.display = "block";
+                }
+                return res.json();
+              })
         }
     </script>
 </body>
