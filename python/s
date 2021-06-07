@@ -1,0 +1,59 @@
+import openpyxl
+
+
+wb = openpyxl.load_workbook("2021sbjct.xlsx")
+sheet = wb.worksheets[0]
+
+dic = []
+for row in sheet.rows:
+    dic[row[2].value] = [row[2].value, row[3].value, row[4].value, row[5].value, row[6].value, row[7].value,
+                         row[8].value, row[9].value, row[10].value, row[11].value]
+
+
+def find(v):
+    return dic[v]
+
+
+def find_all():
+    return dic
+
+
+########################################
+
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from .models import Account
+from python.test import find, find_all
+
+temp1 = "main/index1.html"
+temp2 = "main/index2.html"
+temp3 = "main/singUp.html"
+temp4 = "main/signIn.html"
+
+
+def signUp(request):
+    return render(request, temp3)
+
+
+def signIn(request):
+    return render(request, temp4)
+
+
+def view(request):
+    #value = Account.objects.all()
+
+    return render(request, temp2, {"value_list" : find(21008)})
+
+
+# function
+def insert(request):
+    clsNum = int(request.POST.get('clsNum'))
+    name = request.POST.get('name')
+    pw = 1544
+
+    Account(clsNum=clsNum, name=name, pw=pw).save()
+
+    return redirect("../v")
+
+
+#######################################
