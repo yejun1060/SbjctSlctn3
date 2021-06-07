@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Account
 
@@ -43,17 +44,16 @@ def signIn(request):
         pass
 
 
+@csrf_exempt
 def singInCheck(request):
     if request.method == "POST":
         try:
-            account = Account.objects.get(clsNum= request.POST.get("clsNum"))
+            Account.objects.get(clsNum= request.POST.get("clsNum"))
             return JsonResponse({"msg": "successfully"}, status=200)
 
-        except Account.objects.get(clsNum= request.POST.get("clsNum")).DoesNotExist:
-            return JsonResponse({"msg": "unknown value"}, status=400)
+        except BaseException: return JsonResponse({"msg": "unknown value"}, status=400)
 
-    else:
-        return JsonResponse({"msg": "wrong approach"}, status= 404)
+    return JsonResponse({"msg": "wrong approach"}, status= 404)
 
 
 # function
