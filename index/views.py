@@ -1,8 +1,17 @@
 from django.shortcuts import render
+from django.apps import apps
 
 
-temp1 = "index/index.html"
+model = apps.get_model('main', 'Account')
 
 
 def index(request):
-    return render(request, temp1)
+    pk = request.session.get('user')
+
+    if pk:
+        account = model.objects.get(stuNum=pk)
+        name = account.name
+
+        return render(request, 'index.html', {'pk': pk, 'name': name})
+
+    return render(request, 'index.html')

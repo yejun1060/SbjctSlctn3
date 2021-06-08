@@ -2,60 +2,77 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.csrf import csrf_exempt
+from datetime import datetime as t
 
 from .models import Account
-
-temp1 = "main/index1.html"
-temp2 = "main/index2.html"
-temp3 = "main/signup.html"
-temp4 = "main/signin.html"
 
 
 def signUp(request):
     if request.method == "GET":
-        return render(request, temp3)
+        return render(request, 'unknown/signUp.html')
 
     elif request.method == "POST":
         try:
-            # isRegistered?
-            if Account.objects.filter(clsNum=request.POST.get('clsNum')).exists():
+            # isRegistered
+            if Account.objects.filter(stuNum=request.POST.get('stuNum')).exists():
                 return JsonResponse({"msg": "already signed up"}, status=400)
 
-            # HasBlank?
-            if request.POST.get('clsNum') or request.POST.get('name') == "":
+            # HasBlank
+            if request.POST.get('stuNum') or request.POST.get('name') == "":
                 return JsonResponse({"msg": "value has null"}, status=400)
 
             # create account
             Account.objects.create(
-                clsNum=request.POST.get('clsNum'),
-                name=request.POST.get('name'),
-                pw=2828).save()
+                stuNum=request.POST.get('stuNum'),
+                name=request.POST.get('name')).save()
             return JsonResponse({"msg": "successfully"}, status=200)
 
-        except: return JsonResponse({"msg": e}, status=400)
+        except: return JsonResponse({"msg": "error"}, status=400)
 
 
 def signIn(request):
-    id = request.POST.get('clsNum')
+    id = request.POST.get('stuNum')
     pw = request.POST.get('name')
 
     if request.method == "GET":
-        return render(request, temp4)
+        return render(request, 'signin.html')
 
     elif request.method == "POST":
         try:
-            account = Account.objects.filter(clsNum=id, name=pw)
-            print(account)
-            return JsonResponse({"msg": "로그인 성공"}, status=200)
+            # isNotEmpty
+            if id and pw:
 
-        except: return JsonResponse({"msg": "아이디나 비밀번호를 찾을 수 없습니다."}, status=400)
+                # isNotRegistered
+                if not Account.objects.filter(stuNum=id):
+                    Account.objects.create(
+                        stuNum=id,
+                        name=pw,
+                        last_login=t.now(),
+                        joined_date=t.now()).save()
+                    request.session['user'] = id
+
+                    return redirect('../../')
+
+                else: # login
+                    # isMatchIdAndPw
+                    if Account.objects.get(stuNum=id).name == pw:
+                        account = Account.objects.get(stuNum=id)
+                        account.last_login = t.now()
+                        account.save()
+                        request.session['user'] = id
+
+                        return redirect('../../')
+
+        except: pass
+
+        return redirect('sign_in')
 
 
 @csrf_exempt
 def singInCheck(request):
     if request.method == "POST":
         try:
-            Account.objects.get(clsNum=int(request.POST.get("clsNum")))
+            Account.objects.get(stuNum=int(request.POST.get("stuNum")))
             return JsonResponse({"msg": "successfully"}, status=200)
 
         except BaseException:
@@ -64,12 +81,7 @@ def singInCheck(request):
     return JsonResponse({"msg": "wrong approach"}, status=404)
 
 
-# function
-def insert(request):
-    clsNum = int(request.POST.get('clsNum'))
-    name = request.POST.get('name')
-    pw = 1544
+def logout(request):
+    request.session.clear()
 
-    Account(clsNum=clsNum, name=name, pw=pw).save()
-
-    return redirect("../v")
+    return redirect('')
