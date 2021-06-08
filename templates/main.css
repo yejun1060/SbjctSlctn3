@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
+  background-color: rgba(194, 255, 199, 0.7);
+  height: 108px;
+  width: 100%;
+  padding: ;
+
+  font-weight: bold;
+  position: fixed;
+  text-align: left;
+  font-size: 114%;
+  color: rgb(0, 0, 0);
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px lightgrey;
+}
+
+HR {
+  position: ;
+}
+
+.readit {
+  position: center;
+}
+/* Container for flexboxes */
+section {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: -webkit-flex;
+  display: flex;
+  border-style: groove;
+  box-shadow: 3px 3px 3px lightslategrey;
+}
+
+section li {
+  font-size: 19px;
+  list-style-type: number;
+}
+section ul {
+  border-style: none;
+  border: style 3px;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 38px;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+
+  padding: 10px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 20px;
+  padding-left: 0%;
+}
+nav li {
+  float: left;
+  margin-left: 10%;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0px;
+  border-color: rgb(11, 22, 14);
+  border-radius: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+}
+
+div h1 {
+  margin-left: 40px;
+}
+div p {
+  margin-left: 40px;
+}
+div label {
+  padding: 15px;
+  margin-left: 30px;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox span {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.checkbox .icon {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #c8ccd4;
+  border-radius: 3px;
+  transition: background 0.1s ease;
+}
+
+.checkbox.icon::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 5px;
+  height: 11px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg) scale(0);
+  transition: all 0.3s ease;
+  transition-delay: 0.15s;
+  opacity: 0;
+}
+.checkbox.text {
+  margin-left: 5px;
+}
+
+.checkbox input:checked ~ .icon {
+  border-color: transparent;
+  background: #ff1616;
+  animation: jelly 0.6s ease;
+}
+
+.checkbox input:checked ~ .icon::after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
+@keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
