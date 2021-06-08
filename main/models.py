@@ -3,7 +3,7 @@ from django.db import models
 
 class Account(models.Model):
     id = models.AutoField(primary_key = True)
-    clsNum = models.IntegerField()
+    clsNum = models.IntegerField(unique=True)
     name = models.CharField(max_length=5)
     pw = models.IntegerField()
 

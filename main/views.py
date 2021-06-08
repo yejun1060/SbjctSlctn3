@@ -32,16 +32,23 @@ def signUp(request):
                 pw=2828).save()
             return JsonResponse({"msg": "successfully"}, status=200)
 
-        except BaseException as e:
-            return JsonResponse({"msg": e}, status=400)
+        except: return JsonResponse({"msg": e}, status=400)
 
 
 def signIn(request):
+    id = request.POST.get('clsNum')
+    pw = request.POST.get('name')
+
     if request.method == "GET":
         return render(request, temp4)
 
     elif request.method == "POST":
-        pass
+        try:
+            account = Account.objects.filter(clsNum=id, name=pw)
+            print(account)
+            return JsonResponse({"msg": "로그인 성공"}, status=200)
+
+        except: return JsonResponse({"msg": "아이디나 비밀번호를 찾을 수 없습니다."}, status=400)
 
 
 @csrf_exempt
