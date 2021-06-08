@@ -84,4 +84,4 @@ def singInCheck(request):
 def logout(request):
     request.session.clear()
 
-    return redirect('')
+    return redirect('../../')
