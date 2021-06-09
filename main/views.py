@@ -59,6 +59,7 @@ def signIn(request):
                     if account.name == pw:
                         account.last_login = t.now()
                         account.save()
+
                         request.session['user'] = id
 
                         return redirect('../../')

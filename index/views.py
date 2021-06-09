@@ -9,7 +9,11 @@ def index(request):
     if pk:
         account = model.objects.get(stuNum=pk)
         name = account.name
+        tch = account.tch + "선생님"
 
-        return render(request, 'index.html', {'pk': pk, 'name': name})
+        if not tch:
+            tch = "미배정"
+        
+        return render(request, 'index.html', {'pk': pk, 'name': name, 'tch': tch})
 
     return render(request, 'index.html')
