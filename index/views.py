@@ -14,6 +14,6 @@ def index(request):
         if not tch:
             tch = "미배정"
         
-        return render(request, 'index.html', {'pk': pk, 'name': name, 'tch': tch})
+        return render(request, 'main.html', {'pk': pk, 'name': name, 'tch': tch})
 
-    return render(request, 'index.html')
+    return render(request, 'main.html')
