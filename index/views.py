@@ -2,11 +2,9 @@ from django.shortcuts import render
 from django.apps import apps
 
 
-model = apps.get_model('main', 'Account')
-
-
 def index(request):
     pk = request.session.get('user')
+    model = apps.get_model('main', 'Account')
 
     if pk:
         account = model.objects.get(stuNum=pk)

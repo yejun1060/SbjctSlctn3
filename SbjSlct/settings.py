@@ -41,11 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'index.apps.IndexConfig',
-    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -55,10 +53,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-]
-
-INTERNAL_IPS = [
-    '127.0.0.1',
 ]
 
 ROOT_URLCONF = 'SbjSlct.urls'
@@ -88,7 +82,9 @@ WSGI_APPLICATION = 'SbjSlct.wsgi.application'
 
 DATABASES = db
 
+SESSION_COOKIE_AGE = 60 * 20
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
 # Password validation

@@ -53,16 +53,17 @@ def signIn(request):
                     return redirect('../../')
 
                 else: # login
+                    account = Account.objects.get(stuNum=id)
+
                     # isMatchIdAndPw
-                    if Account.objects.get(stuNum=id).name == pw:
-                        account = Account.objects.get(stuNum=id)
+                    if account.name == pw:
                         account.last_login = t.now()
                         account.save()
                         request.session['user'] = id
 
                         return redirect('../../')
 
-        except: pass
+        except: print("4")
 
         return redirect('sign_in')
 
