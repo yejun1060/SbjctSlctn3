@@ -47,7 +47,10 @@ def signIn(request):
                         stuNum=id,
                         name=pw,
                         last_login=t.now(),
-                        joined_date=t.now()).save()
+                        joined_date=t.now(),
+                        tch_id=1,
+                        isAdmin=0,
+                        isSuperUser=0).save()
                     request.session['user'] = id
 
                     return redirect('../../')
@@ -64,7 +67,7 @@ def signIn(request):
 
                         return redirect('../../')
 
-        except: print("4")
+        except BaseException as e: print(e)
 
         return redirect('sign_in')
 
