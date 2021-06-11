@@ -34,7 +34,7 @@ def signIn(request):
     pw = request.POST.get('name')
 
     if request.method == "GET":
-        return render(request, 'signin.html')
+        return render(request, 'login.html')
 
     elif request.method == "POST":
         try:
@@ -67,7 +67,7 @@ def signIn(request):
 
                         return redirect('../../')
 
-        except BaseException as e: print(e)
+        except: pass
 
         return redirect('sign_in')
 
