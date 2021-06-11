@@ -1,7 +1,9 @@
 {% if pk %}
-    <p> {{ name }}({{ pk }})님 /  {{ tch }}</p>
+    <p> {{ student_name }}({{ pk }})님 /  {{ tch }}</p>
+    <a href="http://localhost:2028/m/4">로그아웃</a>
+{% elif teacher_pk %}
+    <p>  {{ teacher_name }}선생님 ({{ class }})</p>
     <a href="http://localhost:2028/m/4">로그아웃</a>
 {% else %}
     <a href="http://localhost:2028/m/2">로그인</a>
 {% endif %}
-

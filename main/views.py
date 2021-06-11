@@ -3,38 +3,39 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime as t
 
-from .models import Account
+from .models import Account, AccountTch,is_valid
 
 
-def signUp(request):
-    if request.method == "GET":
-        return render(request, 'unknown/signUp.html')
+def teacher_signIn(request):
+    id = request.POST.get('teacher_id')
+    pw = request.POST.get('teacher_name')
 
-    elif request.method == "POST":
+    if request.method == "POST":
         try:
-            # isRegistered
-            if Account.objects.filter(stuNum=request.POST.get('stuNum')).exists():
-                return JsonResponse({"msg": "already signed up"}, status=400)
+            # isNotEmpty
+            if id and pw:
+                account = AccountTch.objects.get(teacher_id=id)
 
-            # HasBlank
-            if request.POST.get('stuNum') or request.POST.get('name') == "":
-                return JsonResponse({"msg": "value has null"}, status=400)
+                # isRegistered
+                if account.name == pw:
+                    account.last_login = t.now()
+                    account.save()
 
-            # create account
-            Account.objects.create(
-                stuNum=request.POST.get('stuNum'),
-                name=request.POST.get('name')).save()
-            return JsonResponse({"msg": "successfully"}, status=200)
+                    request.session['teacher'] = account.id
 
-        except: return JsonResponse({"msg": "error"}, status=400)
+                    return redirect("../../")
+
+        except: pass
+
+    return redirect('teacher_sign_in')
 
 
 def signIn(request):
-    id = request.POST.get('stuNum')
-    pw = request.POST.get('name')
+    id = request.POST.get('student_number')
+    pw = request.POST.get('student_name')
 
     if request.method == "GET":
-        return render(request, 'login.html')
+        return render(request, 'signin.html')
 
     elif request.method == "POST":
         try:

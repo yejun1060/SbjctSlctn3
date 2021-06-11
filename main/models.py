@@ -5,6 +5,7 @@ from django.db.models import PROTECT
 
 class AccountTch(models.Model):
     id = models.AutoField(primary_key=True)
+    teacher_id = models.CharField(max_length=20, default="id", unique=True)
     name = models.CharField(max_length=5)
 
     Auth = models.IntegerField(default=1)
@@ -31,5 +32,3 @@ class Account(models.Model):
 
     def __str__(self):
         return self.name
-
-

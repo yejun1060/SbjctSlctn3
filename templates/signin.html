@@ -6,17 +6,37 @@
 </head>
 <body>
 
+    <span><input type="radio" name="radio" value="student" checked onclick="student_click()">학생</span>
+    <span><input type="radio" name="radio" value="teacher" onclick="teacher_click()">선생님</span>
 
-    <form action="http://localhost:2028/m/2" method="POST" id="frm1">
+    <form action="http://localhost:2028/m/2" method="POST" id="frm1" style="display: block">
         {% csrf_token %}
-        <input type="text" name="stuNum" placeholder="학번">
-        <input type="text" name="name" placeholder="이름">
+        학생내용
+        <input type="text" name="student_number" placeholder="학번">
+        <input type="text" name="student_name" placeholder="이름">
+        <button type="submit">로그인</button>
+    </form>
+
+    <form action="http://localhost:2028/m/5" method="POST" id="frm2" style="display: none">
+        {% csrf_token %}
+        교사내용
+        <input type="text" name="teacher_id" placeholder="아이디">
+        <input type="text" name="teacher_name" placeholder="이름">
         <button type="submit">로그인</button>
     </form>
 
     <form action="http://localhostL2028/"></form>
 
-
+    <script>
+        function student_click() {
+            document.getElementById("frm1").style.display = "block"
+            document.getElementById("frm2").style.display = "none"
+        }
+        function teacher_click() {
+           document.getElementById("frm1").style.display = "none"
+            document.getElementById("frm2").style.display = "block"
+        }
+    </script>
 
 </body>
 </html>
