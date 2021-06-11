@@ -6,7 +6,11 @@
 이런 점을 개선하기 위해 이 프로그램을 만들게 되었다,
 
 # Demo
-준비중
+ ⬆[학생로그인]
+![](학생로그인.gif)
+
+ ⬆[교사로그인]
+![](교사로그인.gif)
 
 # Technologies used (libraries & versions)
 python, django
