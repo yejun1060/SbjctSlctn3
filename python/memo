@@ -1,0 +1,22 @@
+def teacher_login(request):
+    id = request.POST.get('teacher_id')
+    pw = request.POST.get('teacher_name')
+
+    if request.method == "POST":
+        try:
+            # isNotEmpty
+            if id and pw:
+                account = AccountTch.objects.get(teacher_id=id)
+
+                # isRegistered
+                if account.name == pw:
+                    account.last_login = t.now()
+                    account.save()
+
+                    request.session['teacher'] = account.id
+
+                    return redirect("../../")
+
+        except: pass
+
+    return redirect('teacher_sign_in')

@@ -29,10 +29,24 @@ def index(request):
             pk = request.session.get('teacher')
 
             teacher_account = teacher_model.objects.get(id=pk)
+            q1 = str(teacher_account.class_number)
+            l = []
+            
+            if q1 == "0":
+                q1 = "미배정"
+
+            else:
+                for i in q1:
+                    l.append(i)
+
+                if l[1] == "0":
+                    l[1] = ""
+                
+                q1 = l[0] + "학년 " + l[1] + l[2] + "반"
 
             value = {'teacher_pk': pk,
                      'teacher_name': teacher_account.name,
-                     'class': "2학년 8반"}
+                     'class': q1}
 
     except: pass
 

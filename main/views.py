@@ -3,87 +3,69 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime as t
 
-from .models import Account, AccountTch,is_valid
+from .models import Account, AccountTch
 
 
-def teacher_signIn(request):
-    id = request.POST.get('teacher_id')
-    pw = request.POST.get('teacher_name')
-
+def login(request):
     if request.method == "POST":
+
         try:
+            id = request.POST.get('student_number')
+            pw = request.POST.get('student_name')
+            q = Account.objects.get(stuNum=id)
+
+            # Yet
+            if not q:
+                query = Account.objects.create(
+                    stuNum=id,
+                    name=pw,
+                    last_login=t.now(),
+                    joined_date=t.now(),
+                    tch_id=1,
+                    isAdmin=0,
+                    isSuperUser=0).save()
+
+            # Not Yet
+            else:
+                q.last_login = t.now()
+                q.save()
+
+            request.session['user'] = id
+
+            return redirect('indexs')
+
+        except: pass
+
+        return redirect('login')
+
+    return render(request, "signin.html", {})
+
+
+def teacher_login(request):
+    if request.method == "POST":
+
+        try:
+            id = request.POST.get('teacher_id')
+            pw = request.POST.get('teacher_name')
+
             # isNotEmpty
             if id and pw:
-                account = AccountTch.objects.get(teacher_id=id)
+                query = AccountTch.objects.get(teacher_id=id)
 
                 # isRegistered
-                if account.name == pw:
-                    account.last_login = t.now()
-                    account.save()
+                if query.name == pw:
+                    query.last_login = t.now()
+                    query.save()
 
-                    request.session['teacher'] = account.id
+                    request.session['teacher'] = query.id
 
-                    return redirect("../../")
+                    return redirect("indexs")
 
-        except: pass
+        except BaseException as e:print(e)
 
-    return redirect('teacher_sign_in')
+        return redirect('teacher_login')
 
-
-def signIn(request):
-    id = request.POST.get('student_number')
-    pw = request.POST.get('student_name')
-
-    if request.method == "GET":
-        return render(request, 'signin.html')
-
-    elif request.method == "POST":
-        try:
-            # isNotEmpty
-            if id and pw:
-
-                # isNotRegistered
-                if not Account.objects.filter(stuNum=id):
-                    Account.objects.create(
-                        stuNum=id,
-                        name=pw,
-                        last_login=t.now(),
-                        joined_date=t.now(),
-                        tch_id=1,
-                        isAdmin=0,
-                        isSuperUser=0).save()
-                    request.session['user'] = id
-
-                    return redirect('../../')
-
-                else: # login
-                    account = Account.objects.get(stuNum=id)
-
-                    # isMatchIdAndPw
-                    if account.name == pw:
-                        account.last_login = t.now()
-                        account.save()
-
-                        request.session['user'] = id
-
-                        return redirect('../../')
-
-        except: pass
-
-        return redirect('sign_in')
-
-
-@csrf_exempt
-def singInCheck(request):
-    if request.method == "POST":
-        try:
-            Account.objects.get(stuNum=int(request.POST.get("stuNum")))
-            return JsonResponse({"msg": "successfully"}, status=200)
-
-        except BaseException:
-            return JsonResponse({"msg": "unknown value"}, status=400)
-
-    return JsonResponse({"msg": "wrong approach"}, status=404)
+    return render(request, "signin.html", {})
 
 
 def logout(request):
