@@ -12,10 +12,10 @@ def login(request):
         try:
             id = request.POST.get('student_number')
             pw = request.POST.get('student_name')
-            q = Account.objects.get(stuNum=id)
+            query = Account.objects.get(stuNum=id)
 
             # Yet
-            if not q:
+            if not query:
                 query = Account.objects.create(
                     stuNum=id,
                     name=pw,
@@ -27,14 +27,15 @@ def login(request):
 
             # Not Yet
             else:
-                q.last_login = t.now()
-                q.save()
+                query.last_login = t.now()
+                query.save()
 
             request.session['user'] = id
 
             return redirect('indexs')
 
-        except: pass
+        except:
+            pass
 
         return redirect('login')
 
@@ -61,7 +62,7 @@ def teacher_login(request):
 
                     return redirect("indexs")
 
-        except BaseException as e:print(e)
+        except: pass
 
         return redirect('teacher_login')
 

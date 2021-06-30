@@ -7,3 +7,17 @@
 {% else %}
     <a href="http://localhost:2028/m/2">로그인</a>
 {% endif %}
+
+{% if messages %}
+    <div class="row" style="margin:20px auto;">
+    <div class="col-sm-12">
+        <div class="alert alert-danger">
+        <strong>{{ messages.tags }}!</strong> {{ messages.message }}
+        </div>
+    </div>
+    </div>
+{% endif %}
+
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">

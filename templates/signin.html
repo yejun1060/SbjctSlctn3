@@ -5,7 +5,15 @@
     <title>로그인화면</title>
 </head>
 <body>
-
+    {% if messages %}
+        <div class="row" style="margin:20px auto;">
+            <div class="col-sm-12">
+                <div class="alert alert-danger">
+                    <strong>{{ messages.tags }}!</strong> {{ messages.message }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <span><input type="radio" name="radio" value="student" checked onclick="student_click()">학생</span>
     <span><input type="radio" name="radio" value="teacher" onclick="teacher_click()">선생님</span>
 
@@ -38,5 +46,10 @@
         }
     </script>
 
+
+
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </body>
 </html>

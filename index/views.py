@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.apps import apps
+from django.contrib import messages
 
 
 def index(request):
@@ -46,7 +47,8 @@ def index(request):
 
             value = {'teacher_pk': pk,
                      'teacher_name': teacher_account.name,
-                     'class': q1}
+                     'class': q1,
+                     }
 
     except: pass
 

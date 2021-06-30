@@ -44,27 +44,28 @@
                         <form method="POST">
                             
 
-                            <p><b>기초교과 과목<학기 집중이수></b></p>
+                            <p><b>기초교과 과목 <학기 집중이수> </b></p>
+
                             <label class="checkbox" >
-                                <input type="checkbox" name='언어와 매체'/>
+                                <input type="checkbox" value='언어와 매체' name="subject1[]" onclick='checkOnlyOne1(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">언어와 매체</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='확률과 통계'/>
+                                <input type="checkbox" value='확률과 통계' name="subject1[]" onclick='checkOnlyOne1(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">확률과 통계</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='영어회화'/>
+                                <input type="checkbox" value='영어회화' name="subject1[]" onclick='checkOnlyOne1(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">영어회화</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='영미문학읽기'/>
+                                <input type="checkbox" value='영미문학읽기' name="subject1[]" onclick='checkOnlyOne1(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">영미문학읽기</span>
                             </label>
@@ -72,31 +73,31 @@
                             
                             <p><b>탐구과목-사회</b></p>
                             <label class="checkbox" >
-                                <input type="checkbox" name='한국지리'/>
+                                <input type="checkbox" value='한국지리' name="subject2[]" onclick='checkOnlyOne2(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">한국지리</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='사회문화'/>
+                                <input type="checkbox" value='사회문화' name="subject2[]" onclick='checkOnlyOne2(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">사회문화</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='세계사'/>
+                                <input type="checkbox" value='세계사' name="subject2[]" onclick='checkOnlyOne2(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">세계사</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='생활과 윤리'/>
+                                <input type="checkbox" value='생활과 윤리' name="subject2[]" onclick='checkOnlyOne2(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">생활과 윤리</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='경제'/>
+                                <input type="checkbox" value='경제' name="subject2[]" onclick='checkOnlyOne2(this)'/>
                                 <span class="icon"></span>
                                 <span class="test">경제</span>
                             </label>
@@ -104,31 +105,31 @@
 
                             <p><b>탐구과목-과학</b></p>
                             <label class="checkbox">
-                                <input type="checkbox" name='물리학1'/>
+                                <input type="checkbox" value='물리학1' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">물리학1</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='화학1'/>
+                                <input type="checkbox" value='화학1' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">화학1</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='생명과학1'/>
+                                <input type="checkbox" value='생명과학1' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">생명과학1</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='지구과학1'/>
+                                <input type="checkbox" value='지구과학1' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">지구과학1</span>
                             </label>
                             
                             <label class="checkbox">
-                                <input type="checkbox" name='프로그래밍'/>
+                                <input type="checkbox" value='프로그래밍' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">프로그래밍</span>
                             </label>
@@ -136,25 +137,25 @@
 
                             <p><b>생활교양-제2외국어</b></p>
                             <label class="checkbox">
-                                <input type="checkbox" name='중국어회화'/>
+                                <input type="checkbox" value='중국어회화' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">중국어회화</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='일본어회화'/>
+                                <input type="checkbox" value='일본어회화' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">일본어회화</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='중국문화'/>
+                                <input type="checkbox" value='중국문화' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">중국문화</span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='일본문화'/>
+                                <input type="checkbox" value='일본문화' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">일본문화</span>
                             </label>
@@ -162,7 +163,7 @@
                             <br><br>
                             <p><b>생활교양-교양</b></p>
                             <label class="checkbox">
-                                <input type="checkbox" name='철학'/>
+                                <input type="checkbox" value='철학' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">철학 / 논리학 / 심리학 / 교육학 / 논술 / 강원의약사와 문화 / 환경 / 실용경제 / 공중보건 / 바리스타</span>
                             </label>
@@ -170,13 +171,13 @@
                             <br><br>
                             <p><b>생활교양-기술가정</b></p>
                             <label class="checkbox">
-                                <input type="checkbox" name='창의경영'/>
+                                <input type="checkbox" value='창의경영' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">창의경영 / 인간발달 / 건축일반 / 기초제도 </span>
                             </label>
 
                             <label class="checkbox">
-                                <input type="checkbox" name='응용 프로그래밍 개발'/>
+                                <input type="checkbox" value='응용 프로그래밍 개발' name="subject[]"/>
                                 <span class="icon"></span>
                                 <span class="test">응용 프로그래밍 개발</span>
                             </label>
@@ -219,5 +220,83 @@
     <footer>
 
     </footer>
+
+    <script>
+
+
+        function checkOnlyOne1(element) {
+
+          const checkboxes
+              = document.getElementsByName("subject1[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne2(element) {
+
+          const checkboxes
+              = document.getElementsByName("subject2[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne3(element) {
+
+          const checkboxes
+              = document.getElementsByName("subject3[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne4(element) {
+
+          const checkboxes
+              = document.getElementsByName("subject4[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne5(element) {
+
+          const checkboxes
+              = document.getElementsByName("subject5[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne6(element) {
+
+          const checkboxes
+              = document.getElementsByName("subject6[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+
+    </script>
 </body>
 </html>
