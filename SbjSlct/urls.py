@@ -1,12 +1,8 @@
-import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('m/', include("main.urls")),
-    path('mem/', include("account.urls")),
-    path('',include("index.urls")),
-    path('__debug__/', include(debug_toolbar.urls)),
-
+    path('', include("main.urls")),
+    path('m/', include("account.urls"))
 ]
