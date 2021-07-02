@@ -1,7 +1,6 @@
 from django.db import models
-from django.http import HttpResponse, Http404
+from django.http import Http404
 from django.db.models import PROTECT
-from datetime import datetime as t
 
 
 class teacher(models.Model):
@@ -41,6 +40,7 @@ def create_user_session(request, user_id):
         request.session['sortation'] = 0
         request.session['user_id'] = user_id
 
+        print("user session이 생성되었습니다.")
         return 0
 
     except: return -1

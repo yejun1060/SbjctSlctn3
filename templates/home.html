@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <center><span style = "color:#2A484E"> 느티</span></center>
+        <div class="login">
+            {% if sortation == "0" %}
+                {% if name %}
+                    {{ name }}님({{ grade }}학년{{ class }}반/{{ homeroom_teacher }}) / <a href="{% url 'logout' %}">로그아웃</a>
+                {% endif %}
+            {% elif sortation == "1" %}
+                선생님
+            {% else %}
+                <a href="{% url 'login' %}">log-in</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">HOME</a></li>
+            <li><a href="{% url 'second' %}">2학년 과목</a></li>
+            <li><a href="{% url 'third' %}">3학년 과목</a></li>
+        </ul>
+    </nav>
+
+    <section>
+
+
+    <div class="final">
+        <ul>
+            <li>시수계산 결과</li>
+            <li>진로과목수:</li>
+            <li>기초교과 총 이수 단위수: </li>
+            <li>사회과목 총 이수단위 수:</li>
+            <li>과학과목 총 이수단위 수:</li>
+            <li>생활, 교양 총 이수단위 수:</li>
+            <li>이수단위 총 합:</li>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <footer>
+
+    </footer>
+</body>
+</html>
