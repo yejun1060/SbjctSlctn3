@@ -1,5 +1,5 @@
 from django.db import models
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.db.models import PROTECT
 from datetime import datetime as t
 
@@ -31,3 +31,29 @@ class user(models.Model):
     
     def __str__(self):
         return self.name + "의 계정"
+
+
+def create_user_session(request, user_id):
+    if request.method != "POST":
+        raise Http404
+
+    try:
+        request.session['sortation'] = 0
+        request.session['user_id'] = user_id
+
+        return 0
+
+    except: return -1
+
+
+def create_teahcer_session(request, teacher_id):
+    if request.method != "POST":
+        raise Http404
+
+    try:
+        request.session['sortation'] = 1
+        request.session['teacher_id'] = teacher_id
+
+        return 0
+
+    except: return -1
