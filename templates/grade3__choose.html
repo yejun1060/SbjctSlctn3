@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <center><span style="color:#2A484E"> 느티</span></center>
+            <div class="login">
+                <a href="log_in.html"></a>
+            </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="log_in.html">로그인</a></li>
+            <li><a href="grade2__choose.html">2학년 과목</a></li>
+            <li><a href="grade3__choose.html"> 3학년 과목</a></li>
+            <li><a href="grade2__result.html">2학년 과목선택 결과</a></li>
+            <li><a href="grade3__result.html">3학년 과목선택 결과</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <br>
+        <ul class="care">
+            <h2 class="hl">과목선택 시 <font color:"red">유의사항</font>
+            </h2>
+            <li><b>기초교과</b>(국어,영어,수학,한국사) 총 이수 단위 수 - <b>90단위 이하</b>여야한다. 단, 공동교육과정을 수강한 경우, 본인의 최종 이수단위의 50%를 초과하면 안된다.
+            </li>
+            <li><b>진로선택</b> 과목수 - <b>3과목 이상</b>이여야한다.</li>
+            <li><b>사회과목</b> 총 이수 단위수 - <b>최소 10단위</b> 이상이여야한다.</li>
+            <li><b>과학과목</b> 총 이수 단위수 - <b>최소 12단위</b> 이상이여야 한다.</li>
+        </ul>
+
+        <div>
+            <div class="two">
+                <div>
+                    공통과목
+                </div>
+                <div class="subject">
+                    <div>
+                        <h1>3학년 선택이수 과목</h1>
+
+                        <form method="POST">
+
+                            <p><b>기초교과 과목-국어</b></p>
+                            <label class="checkbox">
+                                <input type="checkbox" name='화법과 작문' />
+                                <span class="icon"></span>
+                                <span class="test">화법과 작문</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='심화국어'>
+                                <span class="icon"></span>
+                                <span class="test">심화국어</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='고전읽기' />
+                                <span class="icon"></span>
+                                <span class="test">고전읽기</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='실용국어' />
+                                <span class="icon"></span>
+                                <span class="test">실용국어</span>
+                            </label>
+
+
+                            <br><br>
+                            <p><b>기초교과 과목-수학</b></p>
+                            <label class="checkbox">
+                                <input type="checkbox" name='확률과 통계' />
+                                <span class="icon"></span>
+                                <span class="test">확률과 통계</span>
+                            </label>
+
+                            <label class="checkbox" />
+                            <input type="checkbox" name='미적분' />
+                            <span class="icon"></span>
+                            <span class="test">미적분</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='기하' />
+                                <span class="icon"></span>
+                                <span class="test">기하</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='수학과제탐구' />
+                                <span class="icon"></span>
+                                <span class="test">수학과제탐구</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='경제수학' />
+                                <span class="icon"></span>
+                                <span class="test">경제수학</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='실용수학' />
+                                <span class="icon"></span>
+                                <span class="test">실용수학</span>
+                            </label>
+
+
+                            <br><br>
+                            <p><b>기초교과 과목-영어</b></p>
+                            <label class="checkbox">
+                                <input type="checkbox" name='영어회화' />
+                                <span class="icon"></span>
+                                <span class="test">영어회화</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='영어 독해와 작문' />
+                                <span class="icon"></span>
+                                <span class="test">영어 독해와 작문</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='영미 문학 읽기' />
+                                <span class="icon"></span>
+                                <span class="test">영미 문학 읽기</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='영어권 문화' />
+                                <span class="icon"></span>
+                                <span class="test">영어권 문화</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='실용영어' />
+                                <span class="icon"></span>
+                                <span class="test">실용영어</span>
+                            </label>
+
+                            <br><br>
+
+                            <p><b>탐구과목-사회(역사/윤리 포함)</b></p>
+                            <label class="checkbox">
+                                <input type="checkbox" name='세계지리' />
+                                <span class="icon"></span>
+                                <span class="test">세계지리</span>
+                            </label>
+
+                            <label class="checkbox" name='윤리와 사상' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">윤리와 사상</span>
+                            </label>
+
+                            <label class="checkbox" name='동아시아사' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">동아시아사</span>
+                            </label>
+
+                            <label class="checkbox" name='정치와 법' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">정치와 법</span>
+                            </label>
+
+                            <label class="checkbox" name='여행지리' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">여행지리</span>
+                            </label>
+
+                            <label class="checkbox" name='사회문제 탐구' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">사회문제 탐구</span>
+                            </label>
+
+                            <label class="checkbox" name='고전과 윤리' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">고전과 윤리</span>
+                            </label>
+
+                            <br><br>
+
+
+                            <p><b>탐구과목-과학</b></p>
+                            <label class="checkbox" name='물리학1' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">물리학1</span>
+                            </label>
+
+                            <label class="checkbox" name='화학1' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">화학1</span>
+                            </label>
+
+                            <label class="checkbox" name='생명과학1' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">생명과학1</span>
+                            </label>
+
+                            <label class="checkbox" name='지구과학1' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">지구과학1</span>
+                            </label>
+
+                            <label class="checkbox" name='물리학2' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">물리학2</span>
+                            </label>
+
+                            <label class="checkbox" name='화학2' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">화학2</span>
+                            </label>
+
+                            <label class="checkbox" name='생명과학2' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">생명과학2</span>
+                            </label>
+
+                            <label class="checkbox" name='지구과학2' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">지구과학2</span>
+                            </label>
+
+                            <br><br>
+                            <label class="checkbox" name='물리학실험' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">물리학실험</span>
+                            </label>
+
+                            <label class="checkbox" name='화학실험' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">화학실험</span>
+                            </label>
+
+                            <label class="checkbox" name='생명과학실험' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">생명과학실험</span>
+                            </label>
+
+                            <label class="checkbox" name='지구과학실험' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">지구과학실험</span>
+                            </label>
+
+                            <label class="checkbox" name='과학사' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">과학사</span>
+                            </label>
+
+                            <label class="checkbox" name='생활과 과학' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">생활과 과학</span>
+                            </label>
+
+
+
+
+                            <br><br>
+
+                            <p><b>생활교양-교양</b></p>
+                            <label class="checkbox">
+                                <input type="checkbox" name='철학' />
+                                <span class="icon"></span>
+                                <span class="test">철학
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='논리학' />
+                                <span class="icon"></span>
+                                <span class="test">논리학
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='심리학' />
+                                <span class="icon"></span>
+                                <span class="test">심리학
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='교육학' />
+                                <span class="icon"></span>
+                                <span class="test">교육학
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='논술' />
+                                <span class="icon"></span>
+                                <span class="test">논술
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='강원의역사와 문화' />
+                                <span class="icon"></span>
+                                <span class="test">강원의 역사와 문화
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='환경' />
+                                <span class="icon"></span>
+                                <span class="test">환경
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='실용경제' />
+                                <span class="icon"></span>
+                                <span class="test">실용경제
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='공중보건' />
+                                <span class="icon"></span>
+                                <span class="test">공중보건
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='바리스타' />
+                                <span class="icon"></span>
+                                <span class="test">바리스타
+                            </label>
+
+                            <br><br>
+                            <p><b>생활교양-기술가정</b></p>
+                            <label class="checkbox">
+                                <input type="checkbox" name='창의경영' />
+                                <span class="icon"></span>
+                                <span class="test">창의경영
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='인간발달' />
+                                <span class="icon"></span>
+                                <span class="test">인간발달
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='건축일반' />
+                                <span class="icon"></span>
+                                <span class="test">건축일반
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='기초제도' />
+                                <span class="icon"></span>
+                                <span class="test">기초제도
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name='응용 프로그래밍 개발' />
+                                <span class="icon"></span>
+                                <span class="test">응용 프로그래밍 개발</span>
+                            </label>
+                            <input type='reset'>
+
+                            <input type='submit'>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <br><br><br>
+        <label>
+            <input type="submit">
+            <div class="box-1">
+                <div class="btn btn-one">
+                    <span><a href="grade3__result.html">입력 완료</a></span>
+                </div>
+            </div>
+        </label>
+
+        </form>
+        <!--
+        <div class="box-1">
+            <div class="btn btn-one">
+                <span>입력 완료</span>
+            </div>
+        </div>
+        
+        <div class="final">
+            <ul>
+                <li>시수계산 결과</li>
+                <li>진로과목수:</li>
+                <li>기초교과 총 이수 단위수: </li>
+                <li>사회과목 총 이수단위 수:</li>
+                <li>과학과목 총 이수단위 수:</li>
+                <li>생활, 교양 총 이수단위 수:</li>
+                <li>이수단위 총 합:</li>
+            </ul>
+        </div>
+-->
+        <br><br><br>
+    </section>
+
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

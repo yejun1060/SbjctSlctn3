@@ -3,7 +3,6 @@
   font-family: "Cafe24SsurroundAir";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff")
     format("woff");
-  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     .nanumsquare {
     font-family: "NanumSquare", sans-serif !important;
   }

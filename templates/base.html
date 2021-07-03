@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <link rel="shortcut icon" href="/static/favicon.png">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span style="color:#2A484E"> 느티</span>
+            <div class="login">
+                <a href="log_in.html"></a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="log_in.html">로그인</a></li>
+            <li><a href="grade2__choose.html">2학년 과목</a></li>
+            <li><a href="grade3__choose.html"> 3학년 과목</a></li>
+            <li><a href="grade2__result.html">2학년 과목선택 결과</a></li>
+            <li><a href="grade3__result.html">3학년 과목선택 결과</a></li>
+        </ul>
+    </nav>
+
+
+    <section>
+
+        {% block content %}
+        {% endblock %}
+
+    </section>
+
+
+
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

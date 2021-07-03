@@ -6,7 +6,6 @@ from .models import user_info_view
 
 def index(request):
     value = {}
-
     if request.method == "GET":
 
         try:
@@ -27,7 +26,6 @@ def index(request):
 
 def second(request):
     value = {}
-
     if request.method == "GET":
 
         try:
@@ -47,12 +45,17 @@ def second(request):
         except:
             return render(request, "html/redirect2.html", {"error": "로그인 과정에서 오류가 발생했습니다. 나중에 다시 시도해주세요."})
 
-    return render(request, 'second.html', value)
+    return render(request, 'grade2__choose.html', value)
+
+
+def second_end(request):
+    if request.method == "GET":
+
+        return render(request, 'grade2__result.html', {})
 
 
 def third(request):
     value = {}
-
     if request.method == "GET":
 
         try:
@@ -73,6 +76,12 @@ def third(request):
             return render(request, "html/redirect2.html", {"error": "로그인 과정에서 오류가 발생했습니다. 나중에 다시 시도해주세요."})
 
     return render(request, 'third.html', value)
+
+
+def third_end(request):
+    if request.method == "GET":
+
+        return render(request, 'grade3__result.html', {})
 
 
 def test(request):
