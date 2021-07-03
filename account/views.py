@@ -4,7 +4,7 @@ from .models import user, teacher, create_user_session, create_teahcer_session
 from datetime import datetime as t
 
 
-def login(request):
+def user_login(request):
     if request.method == "POST":
 
         try:
@@ -40,6 +40,10 @@ def login(request):
             return render(request, 'html/redirect.html', {"error": "오류가 발생했습니다. 잠시 후 다시 시도해주세요."})
 
     return render(request, 'login.html', {})
+
+
+def teacher_login(request):
+    pass
 
 
 def logout(request):
