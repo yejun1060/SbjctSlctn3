@@ -21,7 +21,7 @@ def index(request):
             print(e)
             return render(request, "html/redirect2.html", {"error": "로그인 과정에서 오류가 발생했습니다. 나중에 다시 시도해주세요."})
 
-    return render(request, "home.html", value)
+    return render(request, "base.html", value)
 
 
 def second(request):
@@ -75,7 +75,7 @@ def third(request):
         except:
             return render(request, "html/redirect2.html", {"error": "로그인 과정에서 오류가 발생했습니다. 나중에 다시 시도해주세요."})
 
-    return render(request, 'third.html', value)
+    return render(request, 'grade3__choose.html', value)
 
 
 def third_end(request):

@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/main.css">
-
-    <title>Document</title>
-</head>
-
-<body>
-    <header>
-        <div class="logo">
-            <center><span style="color:#2A484E"> 느티</span></center>
-            <div class="login">
-                <a href="log_in.html"></a>
-            </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="log_in.html">로그인</a></li>
-            <li><a href="grade2__choose.html">2학년 과목</a></li>
-            <li><a href="grade3__choose.html"> 3학년 과목</a></li>
-            <li><a href="grade2__result.html">2학년 과목선택 결과</a></li>
-            <li><a href="grade3__result.html">3학년 과목선택 결과</a></li>
-        </ul>
-    </nav>
-
+{% block content %}
     <section>
         <br>
         <ul class="care">
@@ -423,9 +397,4 @@
     </section>
 
 
-    <footer>
-
-    </footer>
-</body>
-
-</html>
+{% endblock %}

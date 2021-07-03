@@ -24,13 +24,11 @@ def user_login(request):
 
             # login
             else:
-
                 if not q.name == request.POST.get("name"):
                     return render(request, 'html/redirect.html', {"error": "아이디랑 비밀번호가 일치하지 않습니다."})
 
             # 로그인 세션 생성
             if create_user_session(request, q.id) != 0:
-
                 return render(request, 'html/redirect.html', {"error": "로그인 정보를 생성하는 과정에서 오류가 발생했습니다."})
 
             return redirect('index')
@@ -39,7 +37,7 @@ def user_login(request):
             print(e)
             return render(request, 'html/redirect.html', {"error": "오류가 발생했습니다. 잠시 후 다시 시도해주세요."})
 
-    return render(request, 'login.html', {})
+    return render(request, 'log_in.html', {})
 
 
 def teacher_login(request):

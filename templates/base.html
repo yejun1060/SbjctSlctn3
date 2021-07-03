@@ -20,11 +20,11 @@
 
     <nav>
         <ul>
-            <li><a href="log_in.html">로그인</a></li>
-            <li><a href="grade2__choose.html">2학년 과목</a></li>
-            <li><a href="grade3__choose.html"> 3학년 과목</a></li>
-            <li><a href="grade2__result.html">2학년 과목선택 결과</a></li>
-            <li><a href="grade3__result.html">3학년 과목선택 결과</a></li>
+            <li><a href="{% url 'login' %}">로그인</a></li>
+            <li><a href="{% url 'second' %}">2학년 과목</a></li>
+            <li><a href="{% url 'second_end' %}"> 3학년 과목</a></li>
+            <li><a href="{% url 'third' %}">2학년 과목선택 결과</a></li>
+            <li><a href="{% url 'third_end' %}">3학년 과목선택 결과</a></li>
         </ul>
     </nav>
 
