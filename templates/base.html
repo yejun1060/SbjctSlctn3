@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
+    <meta name="viewport" user-scalable="no" />
+    {% block title %}
+    {% endblock %}
     <link rel="shortcut icon" href="/static/favicon.png">
 </head>
 
@@ -13,19 +15,36 @@
         <div class="logo">
             <span style="color:#2A484E"> 느티</span>
             <div class="login">
-                <a href="log_in.html"></a>
+                {% if sortation == "0" %}
+                    <a>{{ name }}님({{ grade }}학년{{ class }}반/{{ homeroom_teacher }})</a> / <a href="{% url 'logout' %}">로그아웃</a>
+                {% elif sortation == "1" %}
+                    <!-- 선생 -->
+                {% else %}
+                    <a href="{% url 'login' %}">로그인</a>
+                {% endif %}
+
             </div>
         </div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="{% url 'login' %}">로그인</a></li>
+
+            {% if sortation == "0" %}
+                <!-- 학생 -->
+            {% elif sortation == "1" %}
+                <!-- 선생 -->
+            {% else %}
+                <!-- 예외 -->
+            {% endif %}
+            <li><a href="{% url 'index' %}">홈</a></li>
             <li><a href="{% url 'second' %}">2학년 과목</a></li>
             <li><a href="{% url 'second_end' %}"> 3학년 과목</a></li>
             <li><a href="{% url 'third' %}">2학년 과목선택 결과</a></li>
             <li><a href="{% url 'third_end' %}">3학년 과목선택 결과</a></li>
         </ul>
+
+
     </nav>
 
 
