@@ -273,3 +273,15 @@ a { text-decoration:none }
   font-size: 27px;
 
 }
+
+table {
+  text-align: center;
+  border-spacing: 20px;
+}
+
+td {
+  border-style: none;
+  border-bottom: solid;
+  border-bottom-color: gray;
+  border-width: 1px;
+}
