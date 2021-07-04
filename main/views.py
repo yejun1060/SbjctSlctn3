@@ -43,7 +43,6 @@ def second(request):
 def second_end(request):
     t = check_type(request)
     p = cal_period(request)
-    period = valueSearch.search_value(p)
 
     # user
     if t == 0:
@@ -55,10 +54,18 @@ def second_end(request):
             # 반환 값이 정상적이라면
             if type(p) == type(""):
                 value["subject_list"] = p.replace(';', ', ')
+                temp = valueSearch.search_value(p).split(";")
+                value["a"] = temp[0]
+                value["b"] = temp[1]
+                value["c"] = temp[2]
+                value["d"] = temp[3]
+                value["e"] = temp[4]
+                value["f"] = temp[5]
+
                 subject.objects.create(
-                    user_id=request.session.get("user_id"),
+                    user_id=user.objects.get(id=request.session.get("user_id")),
                     second_result=p,
-                    second_period=period,
+                    second_period=temp[0]+";"+temp[1]+";"+temp[2]+";"+temp[3]+";"+temp[4]+";"+temp[5],
                     date=datetime.now()
                 ).save()
 
@@ -77,7 +84,6 @@ def second_end(request):
     else:
         return render(request, 'html/redirect2.html', {"error": "로그인 후 이용가능한 메뉴입니다."})
 
-    print(value)
     return render(request, 'grade2__result.html', value)
 
 

@@ -27,7 +27,7 @@ dic_4 = {'A': 2,
          'E': 6, }
 # 과목구분코드
 dic = {'연극': 'CFAC',
-       '음악연주/미술창작': 'CFBA',
+       '음악 연주/미술 창작': 'CFBC',
 
        '정보': 'DHAB-1',
        '한문1': 'DJAB-1',
@@ -125,8 +125,8 @@ dic = {'연극': 'CFAC',
        '응용 프로그래밍 개발': 'DHBA-5', }
 
 
-def search_value():
-    temp = "확률과 통계;한문1;일본어1;음악연주/미술창작;세계사;화학1;생명과학1;응용 프로그래밍 개발"
+def search_value(temp):
+    print(temp)
     test = temp.split(';')
     a = 0
     b = 0
@@ -149,8 +149,31 @@ def search_value():
         for j in t:
             l.append(j)
 
-    for i in range(0,3):
+        
+        # 진로과목수 카운트
+        if l[2] == "B":
+            a += 1
 
+        # 기초교과 카운트
+        if l[0] == "A":
+            b += dic_4[l[3]]
+        
+        # 사회과목 카운트
+        if l[1] == "D":
+            c += dic_4[l[3]]
+        
+        # 과학과목 카운트
+        if l[1] == "E":
+            d += dic_4[l[3]]
 
+        # 생활 교양 카운트
+        if l[0] == "D":
+            e += dic_4[l[3]]
 
-search_value()
+        # 예술과목 카운트
+        if l[0] == "C":
+            f += dic_4[l[3]]
+
+        l.clear()
+
+    return str(a)+";"+str(b)+";"+str(c)+";"+str(d)+";"+str(e)+";"+str(f)
