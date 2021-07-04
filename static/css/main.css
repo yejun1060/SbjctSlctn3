@@ -285,3 +285,33 @@ td {
   border-bottom-color: gray;
   border-width: 1px;
 }
+
+
+
+.tmi {
+  padding-left: 4%;
+  padding-right: 1%;
+  font-size: 20px;
+  width: 93%;
+  background-color: ;
+  float: ;
+  letter-spacing: 1px;
+}
+
+.text {
+  font-size: 22px;
+  font-family: "Cafe24SsurroundAir";
+}
+
+.b {
+  font-size: 23px;
+  font-weight: bold;
+  background-color: #f7e39b;
+  width: 100%;
+}
+
+article {
+  float: left;
+  padding-left: 3%;
+}
+
