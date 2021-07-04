@@ -1,9 +1,33 @@
-{% extends 'base.html' %}
-{% block title %}
-    <title>느티::과목선택</title>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <center><span style="color:#2A484E"> 느티</span></center>
+            <div class="login">
+                <a href="log_in.html"></a>
+            </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="log_in.html">로그인</a></li>
+            <li><a href="grade2__choose.html">2학년 과목</a></li>
+            <li><a href="grade3__choose.html"> 3학년 과목</a></li>
+            <li><a href="grade2__result.html">2학년 과목선택 결과</a></li>
+            <li><a href="grade3__result.html">3학년 과목선택 결과</a></li>
+        </ul>
+    </nav>
+
+    <section>
         <br>
         <ul class="care">
             <h2 class="hl">과목선택 시 <font color:"red">유의사항</font>
@@ -24,16 +48,9 @@
                     <div>
                         <h1>3학년 선택이수 과목</h1>
 
-                        <form method="POST" action="{% url 'third_end' %}" id="frm2">
+                        <form method="POST">
 
                             <p><b>기초교과 과목-국어</b></p>
-                            
-                            <label class="checkbox">
-                                <input type="checkbox" value='언어와 매체' />
-                                <span class="icon"></span>
-                                <span class="test">언어와 매체</span>
-                            </label>
-                            
                             <label class="checkbox">
                                 <input type="checkbox" value='화법과 작문' />
                                 <span class="icon"></span>
@@ -263,6 +280,7 @@
                             <span class="icon"></span>
                             <span class="test">생활과 과학</span>
                             </label>
+
                             <br><br>
 
 
@@ -272,28 +290,6 @@
                             <input type="checkbox">
                             <span class="icon"></span>
                             <span class="test">미술감상과 비평</span>
-                            </label>
-                            <br><br>
-
-
-                            <p><b>체육예술-예술</b></p>
-
-                            <label class="checkbox" value='미술감상과 비평' />
-                            <input type="checkbox">
-                            <span class="icon"></span>
-                            <span class="test">미술감상과 비평</span>
-                            </label>
-
-                            <label class="checkbox" value='드로잉' />
-                            <input type="checkbox">
-                            <span class="icon"></span>
-                            <span class="test">드로잉</span>
-                            </label>
-
-                            <label class="checkbox" value='음악 감상과 비평' />
-                            <input type="checkbox">
-                            <span class="icon"></span>
-                            <span class="test">음악감상과 비평</span>
                             </label>
 
                             <label class="checkbox" value='드로잉' />
@@ -391,65 +387,67 @@
 
                         <br><br>
 
+
+
                             <p><b>생활교양-교양</b></p>
                             <label class="checkbox">
                                 <input type="checkbox" value='철학' />
                                 <span class="icon"></span>
-                                <span class="test">철학</span>
+                                <span class="test">철학
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='논리학' />
                                 <span class="icon"></span>
-                                <span class="test">논리학</span>
+                                <span class="test">논리학
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='심리학' />
                                 <span class="icon"></span>
-                                <span class="test">심리학</span>
+                                <span class="test">심리학
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='교육학' />
                                 <span class="icon"></span>
-                                <span class="test">교육학</span>
+                                <span class="test">교육학
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='논술' />
                                 <span class="icon"></span>
-                                <span class="test">논술</span>
+                                <span class="test">논술
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='강원의역사와 문화' />
                                 <span class="icon"></span>
-                                <span class="test">강원의 역사와 문화</span>
+                                <span class="test">강원의 역사와 문화
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='환경' />
                                 <span class="icon"></span>
-                                <span class="test">환경</span>
+                                <span class="test">환경
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='실용경제' />
                                 <span class="icon"></span>
-                                <span class="test">실용경제</span>
+                                <span class="test">실용경제
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='공중보건' />
                                 <span class="icon"></span>
-                                <span class="test">공중보건</span>
+                                <span class="test">공중보건
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='바리스타' />
                                 <span class="icon"></span>
-                                <span class="test">바리스타</span>
+                                <span class="test">바리스타
                             </label>
 
                             <br><br>
@@ -457,25 +455,25 @@
                             <label class="checkbox">
                                 <input type="checkbox" value='창의경영' />
                                 <span class="icon"></span>
-                                <span class="test">창의경영</span>
+                                <span class="test">창의경영
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='인간발달' />
                                 <span class="icon"></span>
-                                <span class="test">인간발달</span>
+                                <span class="test">인간발달
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='건축일반' />
                                 <span class="icon"></span>
-                                <span class="test">건축일반</span>
+                                <span class="test">건축일반
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" value='기초제도' />
                                 <span class="icon"></span>
-                                <span class="test">기초제도</span>
+                                <span class="test">기초제도
                             </label>
 
                             <label class="checkbox">
@@ -487,25 +485,24 @@
 
                             <input type='submit'>
 
-                            <input type="submit">
 
-                        </form>
                     </div>
                 </div>
 
             </div>
         </div>
+
         <br><br><br>
-                            <label>
-                                <div class="box-1">
-                                    <div class="btn btn-one">
-                                        <span><a onclick="document.getElementById('frm2').submit()">입력 완료</a></span>
-                                    </div>
-                                </div>
-                            </label>
+        <label>
+            <input type="submit">
+            <div class="box-1">
+                <div class="btn btn-one">
+                    <span><a href="grade3__result.html">입력 완료</a></span>
+                </div>
+            </div>
+        </label>
 
-
-
+        </form>
         <!--
         <div class="box-1">
             <div class="btn btn-one">
@@ -526,6 +523,12 @@
         </div>
 -->
         <br><br><br>
+    </section>
 
 
-{% endblock %}
+    <footer>
+
+    </footer>
+</body>
+
+</html>
