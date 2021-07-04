@@ -11,5 +11,5 @@ urlpatterns = [
     path("v/3", views.third, name="third"),
     path("v/3-1", views.third_end, name="third_end"),
 
-    path('t/v/1', views.test, name="test"),
+    path('t/v/1', views.teacher_view, name="teacher"),
 ]

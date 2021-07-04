@@ -2,11 +2,12 @@
 @font-face {
   font-family: "Cafe24SsurroundAir";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff")
-    format("woff");
-  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-    .nanumsquare {
+    format("woff")}
+
+
+.nanumsquare {
     font-family: "NanumSquare", sans-serif !important;
-  }
+
   font-weight: normal;
   font-style: normal;
 }
@@ -36,12 +37,10 @@ header {
 
 nav {
   background: linear-gradient(to bottom, #f0dee3, #f4eeed);
-  height:;
   margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 40px;
-  box-shadow: 3px;
 }
 
 nav ul {
@@ -293,8 +292,6 @@ td {
   padding-right: 1%;
   font-size: 20px;
   width: 93%;
-  background-color: ;
-  float: ;
   letter-spacing: 1px;
 }
 

@@ -2,7 +2,7 @@ from django.http import Http404
 from django.shortcuts import render, redirect
 from account.models import user, teacher
 from subject.models import subject
-from .models import user_info_view, cal_period, check_type
+from .models import user_info_view, cal_period, check_type, teacher_info_view
 from . import valueSearch
 from datetime import datetime
 
@@ -17,17 +17,30 @@ def index(request):
 
             # 선생님
             elif request.session.get("sortation") == 1 and request.session.get("teacher_id"):
-                pass
+                value = teacher_info_view(request, teacher)
 
         except:
             return render(request, "html/redirect2.html", {"error": "처리중 오류가 발생했습니다. 나중에 다시 시도해주세요."})
 
-    return render(request, "base.html", value)
+    return render(request, "home.html", value)
+
+
+def teacher_view(request):
+    t = check_type(request)
+
+    # teacher
+    if t == 1:
+        value = teacher_info_view(request, teacher)
+
+    # user or not logged-in
+    else:
+        return render(request, 'html/redirect2.html', {"error": "학생은 이용 불가능한 메뉴입니다"})
+
+    return render(request, 'teacher.html', value)
 
 
 def second(request):
     t = check_type(request)
-    value = []
 
     # user
     if t == 0:
@@ -63,7 +76,7 @@ def second_end(request):
                 value["f"] = temp[5]
                 
                 # 이미 값이 존재한다면
-                if subject.objects.get(id=request.session.get("user_id")):
+                if subject.objects.filter(id=request.session.get("user_id")):
                     subject.objects.update(
                         second_result=p,
                         second_period=temp[0] + ";" + temp[1] + ";" + temp[2] + ";" + temp[3] + ";" + temp[4] + ";" + temp[5],
@@ -73,7 +86,7 @@ def second_end(request):
                 # 값이 존재하지 않고 생성해야 된다면
                 else:
                     subject.objects.create(
-                        user_id=subject.objects.get(id=request.session.get("user_id")),
+                        user_id=user.objects.get(id=request.session.get("user_id")),
                         second_result=p,
                         second_period=temp[0]+";"+temp[1]+";"+temp[2]+";"+temp[3]+";"+temp[4]+";"+temp[5],
                         date=datetime.now()
@@ -88,16 +101,20 @@ def second_end(request):
 
         # nav 바로 진입
         else:
-            p = u.second_result
-            temp = valueSearch.search_value(p).split(";")
+            try:
+                p = subject.objects.get(id=request.session.get("user_id")).second_result
+                temp = valueSearch.search_value(p).split(";")
 
-            value["subject_list"] = p.replace(";", ", ")
-            value["a"] = temp[0]
-            value["b"] = temp[1]
-            value["c"] = temp[2]
-            value["d"] = temp[3]
-            value["e"] = temp[4]
-            value["f"] = temp[5]
+                value["subject_list"] = p.replace(";", ", ")
+                value["a"] = temp[0]
+                value["b"] = temp[1]
+                value["c"] = temp[2]
+                value["d"] = temp[3]
+                value["e"] = temp[4]
+                value["f"] = temp[5]
+
+            except:
+                value["a"] = "none"
 
     # not logged-in or teacher
     else:

@@ -46,15 +46,14 @@ def create_user_session(request, user_id):
     except: return -1
 
 
-
-def create_teahcer_session(request, teacher_id):
-    if request.method != "POST":
-        raise Http404
-
+def create_teacher_session(request, teacher_id):
     try:
         request.session['sortation'] = 1
         request.session['teacher_id'] = teacher_id
 
+        print("teacher session이 생성되었습니다.")
         return 0
 
-    except: return -1
+    except:
+        print(-1)
+        return -1

@@ -8,6 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>느티::로그인</title>
+
+    <script>
+        function f() {
+            document.getElementById('frm1').style.display = "block";
+            document.getElementById('frm2').style.display = "none";
+        }
+
+        function f2() {
+            document.getElementById('frm1').style.display = "none";
+            document.getElementById('frm2').style.display = "block";
+        }
+    </script>
 </head>
 <br>
 
@@ -17,15 +29,16 @@
             <h1>느티</h1>
         </div>
 
-        <form method="POST" action="{% url 'login' %}" id="frm1">
-            {% csrf_token %}
-            <label>
-                <span><input type="radio" name="people" value="student" checked/>학생</span>
+        <label>
+                <span><input type="radio" name="people" value="student" checked onclick="f();"/>학생</span>
                 <span class="icon"></span></label>
 
             <label>
-                <span><input type="radio" name="people" value="teacher" />교사</span>
+                <span><input type="radio" name="people" value="teacher" onclick="f2();"/>교사</span>
                 <span class="icon"></span></label>
+
+        <form method="POST" action="{% url 'login' %}" id="frm1">
+            {% csrf_token %}
 
             <div class="ip">
                 <p><input type="text" name="student_number" placeholder="학번"></p>
@@ -34,7 +47,25 @@
 
             <div class="wrapper">
                 <div class="link_wrapper">
-                    <a onclick="document.getElementById('frm1').submit();">로그인</a>
+                    <a onclick="document.getElementById('frm1').submit();">로그인1</a>
+                    <div class="icon">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <form method="POST" action="{% url 'teacher-login' %}" id="frm2" style="display: none;">
+            {% csrf_token %}
+
+            <div class="ip">
+                <p><input type="text" name="email" placeholder="이메일"></p>
+                <p> <input type="text" name="name" placeholder="이름"></p>
+            </div>
+
+            <div class="wrapper">
+                <div class="link_wrapper">
+                    <a onclick="document.getElementById('frm2').submit();">로그인</a>
                     <div class="icon">
                     </div>
                 </div>
@@ -44,11 +75,12 @@
 
         <br>
 
+        <footer>
+
+        </footer>
 </body>
 
-<footer>
 
-</footer>
 
 
 

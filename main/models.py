@@ -25,6 +25,15 @@ def user_info_view(request, user):
     return value
 
 
+def teacher_info_view(request, teacher):
+    q = teacher.objects.get(id=request.session['teacher_id'])
+
+    value = {"sortation": "1", "name": q.name}
+    print(value)
+
+    return value
+
+
 def cal_period(request):
     try:
         a = request.POST.getlist("A[]")[0]
