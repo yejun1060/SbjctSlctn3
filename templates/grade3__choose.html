@@ -4,7 +4,6 @@
 {% endblock %}
 
 {% block content %}
-    <section>
         <br>
         <ul class="care">
             <h2 class="hl">과목선택 시 <font color:"red">유의사항</font>
@@ -25,7 +24,7 @@
                     <div>
                         <h1>3학년 선택이수 과목</h1>
 
-                        <form method="POST">
+                        <form method="POST" action="{% url 'third_end' %}" id="frm2">
 
                             <p><b>기초교과 과목-국어</b></p>
                             <label class="checkbox">
@@ -267,6 +266,28 @@
                             <span class="icon"></span>
                             <span class="test">미술감상과 비평</span>
                             </label>
+                            <br><br>
+
+
+                            <p><b>체육예술-예술</b></p>
+
+                            <label class="checkbox" name='미술감상과 비평' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">미술감상과 비평</span>
+                            </label>
+
+                            <label class="checkbox" name='드로잉' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">드로잉</span>
+                            </label>
+
+                            <label class="checkbox" name='음악 감상과 비평' />
+                            <input type="checkbox">
+                            <span class="icon"></span>
+                            <span class="test">음악감상과 비평</span>
+                            </label>
 
                             <label class="checkbox" name='드로잉' />
                             <input type="checkbox">
@@ -367,61 +388,61 @@
                             <label class="checkbox">
                                 <input type="checkbox" name='철학' />
                                 <span class="icon"></span>
-                                <span class="test">철학
+                                <span class="test">철학</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='논리학' />
                                 <span class="icon"></span>
-                                <span class="test">논리학
+                                <span class="test">논리학</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='심리학' />
                                 <span class="icon"></span>
-                                <span class="test">심리학
+                                <span class="test">심리학</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='교육학' />
                                 <span class="icon"></span>
-                                <span class="test">교육학
+                                <span class="test">교육학</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='논술' />
                                 <span class="icon"></span>
-                                <span class="test">논술
+                                <span class="test">논술</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='강원의역사와 문화' />
                                 <span class="icon"></span>
-                                <span class="test">강원의 역사와 문화
+                                <span class="test">강원의 역사와 문화</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='환경' />
                                 <span class="icon"></span>
-                                <span class="test">환경
+                                <span class="test">환경</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='실용경제' />
                                 <span class="icon"></span>
-                                <span class="test">실용경제
+                                <span class="test">실용경제</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='공중보건' />
                                 <span class="icon"></span>
-                                <span class="test">공중보건
+                                <span class="test">공중보건</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='바리스타' />
                                 <span class="icon"></span>
-                                <span class="test">바리스타
+                                <span class="test">바리스타</span>
                             </label>
 
                             <br><br>
@@ -429,25 +450,25 @@
                             <label class="checkbox">
                                 <input type="checkbox" name='창의경영' />
                                 <span class="icon"></span>
-                                <span class="test">창의경영
+                                <span class="test">창의경영</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='인간발달' />
                                 <span class="icon"></span>
-                                <span class="test">인간발달
+                                <span class="test">인간발달</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='건축일반' />
                                 <span class="icon"></span>
-                                <span class="test">건축일반
+                                <span class="test">건축일반</span>
                             </label>
 
                             <label class="checkbox">
                                 <input type="checkbox" name='기초제도' />
                                 <span class="icon"></span>
-                                <span class="test">기초제도
+                                <span class="test">기초제도</span>
                             </label>
 
                             <label class="checkbox">
@@ -459,24 +480,25 @@
 
                             <input type='submit'>
 
+                            <input type="submit">
 
+                        </form>
                     </div>
                 </div>
 
             </div>
         </div>
-
         <br><br><br>
-        <label>
-            <input type="submit">
-            <div class="box-1">
-                <div class="btn btn-one">
-                    <span><a href="grade3__result.html">입력 완료</a></span>
-                </div>
-            </div>
-        </label>
+                            <label>
+                                <div class="box-1">
+                                    <div class="btn btn-one">
+                                        <span><a onclick="document.getElementById('frm2').submit()">입력 완료</a></span>
+                                    </div>
+                                </div>
+                            </label>
 
-        </form>
+
+
         <!--
         <div class="box-1">
             <div class="btn btn-one">
@@ -497,7 +519,6 @@
         </div>
 -->
         <br><br><br>
-    </section>
 
 
 {% endblock %}

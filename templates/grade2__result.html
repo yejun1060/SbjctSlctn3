@@ -5,10 +5,12 @@
 {% block content %}
 
 
-    <section>
         <h2 class="title"> 2학년 선택한 과목 </h2>
         <div class="final">
-            대충 니가 선택한 과목 나열
+            {% if subject_list %}
+                <!-- 과목 선택 후 여기로 들어옴 -->
+                {{ subject_list }}
+            {% endif %}
         </div>
         <h2 class="title"> 2학년 과목 선택 시수 계산 결과 </h2>
         <div class="final">
@@ -21,6 +23,5 @@
                 <li>이수단위 총 합:</li>
             </ul>
         </div>
-    </section>
 
 {% endblock %}
