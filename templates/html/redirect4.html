@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>느티::리다이렉트</title>
+    <link rel="shortcut icon" href="/static/favicon.png">
+
+    <script>
+        function init() {
+            alert('{{ error }}');
+            location.href="http://localhost:2028/v/3";
+        }
+    </script>
+</head>
+<body onload="init();">
+    <p>
+        요청이 들어온 페이지로 리다이렉션중입니다.
+        잠시만 기다려주세요.
+    </p>
+</body>
+</html>

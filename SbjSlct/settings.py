@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'survey.apps.SurveyConfig',
     'account.apps.AccountConfig',
+    'subject.apps.SubjectConfig',
 ]
 
 MIDDLEWARE = [
