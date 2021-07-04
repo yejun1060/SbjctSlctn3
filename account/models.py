@@ -23,7 +23,7 @@ class user(models.Model):
     name = models.CharField(max_length=45)
 
     student_number = models.IntegerField(unique=True)
-    homeroom_teacher = models.ForeignKey(teacher, on_delete=PROTECT)
+    homeroom_teacher = models.ForeignKey(teacher, on_delete=PROTECT, null=True)
     
     joined_date = models.DateTimeField()
     last_login_date = models.DateTimeField()
@@ -44,6 +44,7 @@ def create_user_session(request, user_id):
         return 0
 
     except: return -1
+
 
 
 def create_teahcer_session(request, teacher_id):

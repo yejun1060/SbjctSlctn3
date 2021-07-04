@@ -42,7 +42,6 @@ def second(request):
 
 def second_end(request):
     t = check_type(request)
-    p = cal_period(request)
 
     # user
     if t == 0:
@@ -50,6 +49,7 @@ def second_end(request):
 
         # 과목 선택 후 진입(시수계산, DB 저장)
         if request.method == "POST":
+            p = cal_period(request)
 
             # 반환 값이 정상적이라면
             if type(p) == type(""):
@@ -61,13 +61,23 @@ def second_end(request):
                 value["d"] = temp[3]
                 value["e"] = temp[4]
                 value["f"] = temp[5]
-
-                subject.objects.create(
-                    user_id=user.objects.get(id=request.session.get("user_id")),
-                    second_result=p,
-                    second_period=temp[0]+";"+temp[1]+";"+temp[2]+";"+temp[3]+";"+temp[4]+";"+temp[5],
-                    date=datetime.now()
-                ).save()
+                
+                # 이미 값이 존재한다면
+                if subject.objects.get(id=request.session.get("user_id")):
+                    subject.objects.update(
+                        second_result=p,
+                        second_period=temp[0] + ";" + temp[1] + ";" + temp[2] + ";" + temp[3] + ";" + temp[4] + ";" + temp[5],
+                        date=datetime.now()
+                    )
+                    
+                # 값이 존재하지 않고 생성해야 된다면
+                else:
+                    subject.objects.create(
+                        user_id=subject.objects.get(id=request.session.get("user_id")),
+                        second_result=p,
+                        second_period=temp[0]+";"+temp[1]+";"+temp[2]+";"+temp[3]+";"+temp[4]+";"+temp[5],
+                        date=datetime.now()
+                    ).save()
 
             # 일부 과목이 선택되지 않았다면
             elif p == -2:
@@ -78,7 +88,16 @@ def second_end(request):
 
         # nav 바로 진입
         else:
-            pass
+            p = u.second_result
+            temp = valueSearch.search_value(p).split(";")
+
+            value["subject_list"] = p.replace(";", ", ")
+            value["a"] = temp[0]
+            value["b"] = temp[1]
+            value["c"] = temp[2]
+            value["d"] = temp[3]
+            value["e"] = temp[4]
+            value["f"] = temp[5]
 
     # not logged-in or teacher
     else:

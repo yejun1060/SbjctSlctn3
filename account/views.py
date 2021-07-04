@@ -5,39 +5,45 @@ from datetime import datetime as t
 
 
 def user_login(request):
-    if request.method == "POST":
+    # 로그인 페이지
+    if request.method == "GET":
+        return render(request, 'log_in.html', {})
+    
+    # 로그인 기능
+    else:
 
+        # is already registered / login
         try:
-            users, created = user.objects.get_or_create(student_number=request.POST.get("student_number"))
-            q = user.objects.get(student_number=request.POST.get("student_number"))
+            p = user.objects.get(student_number=request.POST.get("student_number"))
 
-            # join
-            if created:
+            if p:
+                # not match
+                if p.name != request.POST.get("name"):
+                    return render(request, 'html/redirect.html', {"error": "학번이랑 이름이 일치하지 않습니다."})
 
-                user.objects.create(
-                    name=request.POST.get("name"),
-                    student_number=request.POST.get("student_number"),
-                    homeroom_teacher=teacher.objects.get(id=1),
-                    joined_date=t.now(),
-                    last_login_date=t.now()
-                ).save()
+                # login session create
+                if create_user_session(request, p.id) != 0:
+                    return render(request, 'html/redirect.html', {"error": "로그인 정보를 생성하는 과정에서 오류가 발생했습니다."})
 
-            # login
-            else:
-                if not q.name == request.POST.get("name"):
-                    return render(request, 'html/redirect.html', {"error": "아이디랑 비밀번호가 일치하지 않습니다."})
+                p.last_login_date = t.now()
+                p.save()
 
-            # 로그인 세션 생성
-            if create_user_session(request, q.id) != 0:
+        # is not registered / join
+        except:
+            user.objects.create(
+                name=request.POST.get("name"),
+                student_number=request.POST.get("student_number"),
+                homeroom_teacher=teacher.objects.get(id=1),
+                joined_date=t.now(),
+                last_login_date=t.now(),
+            ).save()
+
+            # login session create
+            if create_user_session(request, user.objects.get(name=request.POST.get("name").id)) != 0:
                 return render(request, 'html/redirect.html', {"error": "로그인 정보를 생성하는 과정에서 오류가 발생했습니다."})
 
-            return redirect('index')
+    return redirect("index")
 
-        except BaseException as e:
-            print(e)
-            return render(request, 'html/redirect.html', {"error": "오류가 발생했습니다. 잠시 후 다시 시도해주세요."})
-
-    return render(request, 'log_in.html', {})
 
 
 def teacher_login(request):

@@ -6,7 +6,7 @@ from account.models import user
 
 class subject(models.Model):
     id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(user, on_delete=PROTECT)
+    user_id = models.ForeignKey(user, on_delete=PROTECT, unique=True)
     second_result = models.CharField(max_length=100, null=True)
     third_result = models.CharField(max_length=100, null=True)
     second_period = models.CharField(max_length=45, null=True)
