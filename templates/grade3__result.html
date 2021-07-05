@@ -2,21 +2,33 @@
 {% block title %}
     <title>느티::선택결과</title>
 {% endblock %}
-
 {% block content %}
-        <h2 class="title"> 3학년 선택한 과목 </h2>
+
+
+        <h2 class="title"> 2학년 선택한 과목 </h2>
         <div class="final">
-            대충 니가 선택한 과목 나열
+            {% if subject_list %}
+                <!-- 과목 선택 후 여기로 들어옴 -->
+                {{ subject_list }}
+            {% else %}
+                아직 값을 선택하지 않았습니다.
+            {% endif %}
         </div>
-        <h2 class="title"> 3학년 과목 선택 시수 계산 결과 </h2>
+        <h2 class="title"> 2학년 과목 선택 시수 계산 결과 </h2>
         <div class="final">
             <ul>
-                <li>진로과목수:</li>
-                <li>기초교과 총 이수 단위수: </li>
-                <li>사회과목 총 이수단위 수:</li>
-                <li>과학과목 총 이수단위 수:</li>
-                <li>생활, 교양 총 이수단위 수:</li>
-                <li>이수단위 총 합:</li>
+                {% if a == "none"%}
+                    <li>아직 값을 선택하지 않았습니다.</li>
+                {% else %}
+                    <li>진로과목수: {{ a }}개</li>
+                    <li>기초교과 총 이수 단위수: {{ b }}단위</li>
+                    <li>사회과목 총 이수단위 수: {{ c }}단위</li>
+                    <li>과학과목 총 이수단위 수: {{ d }}단위</li>
+                    <li>생활, 교양 총 이수단위 수: {{ e }}단위</li>
+                    <li>예술 총 이수단위 수: {{ f }}단위</li>
+                    <li>이수단위 총 합: 63단위</li>
+                {% endif %}
             </ul>
         </div>
+
 {% endblock %}
