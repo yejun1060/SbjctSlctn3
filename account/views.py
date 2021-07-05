@@ -15,7 +15,7 @@ def user_login(request):
 
         # is already registered / login
         try:
-            p = user.objects.get(student_number=request.POST.get("student_number"))
+            p = user.objects.get(student_number=int(request.POST.get("student_number")))
 
             if p:
                 # not match
@@ -33,14 +33,14 @@ def user_login(request):
         except:
             user.objects.create(
                 name=request.POST.get("name"),
-                student_number=request.POST.get("student_number"),
+                student_number=int(request.POST.get("student_number")),
                 homeroom_teacher=teacher.objects.get(id=1),
                 joined_date=t.now(),
                 last_login_date=t.now(),
             ).save()
 
             # login session create
-            if create_user_session(request, user.objects.get(name=request.POST.get("name").id)) != 0:
+            if create_user_session(request, user.objects.get(name=request.POST.get("name"))) != 0:
                 return render(request, 'html/redirect.html', {"error": "로그인 정보를 생성하는 과정에서 오류가 발생했습니다."})
 
     return redirect("index")

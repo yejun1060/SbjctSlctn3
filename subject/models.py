@@ -6,11 +6,11 @@ from account.models import user
 
 class subject(models.Model):
     id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(user, on_delete=PROTECT, unique=True)
-    second_result = models.CharField(max_length=100, null=True)
-    third_result = models.CharField(max_length=100, null=True)
-    second_period = models.CharField(max_length=45, null=True)
-    third_period = models.CharField(max_length=45, null=True)
+    user_id = models.ForeignKey(user, on_delete=PROTECT)
+    result = models.CharField(max_length=100, null=True)
+    period = models.CharField(max_length=45, null=True)
+    year = models.IntegerField(default=1)
+    semester = models.IntegerField(default=0)
     date = models.DateTimeField()
     
     def __str__(self):

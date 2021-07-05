@@ -35,6 +35,7 @@ def teacher_info_view(request, teacher):
 
 
 def cal_period(request):
+    # 2학년
     try:
         a = request.POST.getlist("A[]")[0]
         b = request.POST.getlist("B[]")[0]
@@ -52,6 +53,71 @@ def cal_period(request):
     except BaseException as e:
         print(e)
         print("cal_period 함수 내에서 발생한 오류입니다.")
+        return -1
+
+
+def cal_period2(request):
+    # 3학년 1학기 cal
+    try:
+        a = request.POST.getlist("A[]")
+        j = request.POST.getlist("J[]")[0]
+
+        return a[0] + ";" + a[1] + ";" + a[2] + ";" + a[3] + ";" + a[4] + ";" + a[5] + ";" + a[6] + ";" + a[7] + ";" + a[8] + ";" + j
+
+    # 채워지지 않은 값이 있다면
+    except IndexError:
+        return -2
+
+    # 예상하지 못한 오류
+    except BaseException as e:
+        print(e)
+        print("cal_period 함수 내에서 발생한 오류입니다.")
+        return -1
+
+
+def cal_period3(request):
+    # 3학년 2학기 cal
+    try:
+        a = request.POST.getlist("A[]")
+        j = request.POST.getlist("J[]")[0]
+
+        return a[0] + ";" + a[1] + ";" + a[2] + ";" + a[3] + ";" + a[4] + ";" + a[5] + ";" + a[6] + ";" + a[7] + ";" + j
+
+    # 채워지지 않은 값이 있다면
+    except IndexError:
+        return -2
+
+    # 예상하지 못한 오류
+    except BaseException as e:
+        print(e)
+        print("cal_period 함수 내에서 발생한 오류입니다.")
+        return -1
+
+
+def sum_control(p1, p2):
+    try:
+        l = []
+        t = ""
+
+        a = p1.split(";")
+        for i in range(0, len(a)):
+            l.append(a[i])
+
+        a = p2.split(";")
+        for i in range(0, len(a)):
+            l.append(a[i])
+
+        my_set = set(l)  # 집합set으로 변환
+        l = list(my_set)
+
+        for i in range(0, len(l)):
+            t += l[i]
+            t += ";"
+
+        return t[:len(t)]
+
+    except BaseException as e:
+        print(e)
         return -1
 
 

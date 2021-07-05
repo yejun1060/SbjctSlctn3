@@ -1,28 +1,7 @@
 
 
-function checkOnlyOne1(element) {
 
-  const checkboxes
-      = document.getElementsByName("A[]");
 
-  checkboxes.forEach((cb) => {
-    cb.checked = false;
-  })
-
-  element.checked = true;
-}
-
-function checkOnlyOne4(element) {
-
-  const checkboxes
-      = document.getElementsByName("B[]");
-
-  checkboxes.forEach((cb) => {
-    cb.checked = false;
-  })
-
-  element.checked = true;
-}
 
 function checkOnlyOne2(element) {
 

@@ -1,6 +1,70 @@
 {% extends 'base.html' %}
 {% block title %}
     <title>느티::과목선택</title>
+    <script>
+
+
+        function checkOnlyOne1(element) {
+
+          const checkboxes
+              = document.getElementsByName("A[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne4(element) {
+
+          const checkboxes
+              = document.getElementsByName("B[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne2(element) {
+
+          const checkboxes
+              = document.getElementsByName("H[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne3(element) {
+
+          const checkboxes
+              = document.getElementsByName("C[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+        function checkOnlyOne5(element) {
+
+          const checkboxes
+              = document.getElementsByName("D[]");
+
+          checkboxes.forEach((cb) => {
+            cb.checked = false;
+          })
+
+          element.checked = true;
+        }
+
+    </script>
 
 {% endblock %}
 
@@ -45,25 +109,25 @@
 
                         <p><b>기초교과 과목<학기 집중이수></b></p>
                         <label class="checkbox">
-                            <input type="checkbox" value='언어와 매체' name="A[]" onclick="checkOnlyOne1(this);"/>
+                            <input type="checkbox" value='언어와 매체' onclick="checkOnlyOne1(this);" name="A[]"/>
                             <span class="icon"></span>
                             <span class="test">언어와 매체</span>
                         </label>
 
                         <label class="checkbox">
-                            <input type="checkbox" value='확률과 통계' name="A[]" onclick="checkOnlyOne1(this);"/>
+                            <input type="checkbox" value='확률과 통계' onclick="checkOnlyOne1(this);" name="A[]"/>
                             <span class="icon"></span>
                             <span class="test">확률과 통계</span>
                         </label>
 
                         <label class="checkbox">
-                            <input type="checkbox" value='영어회화' name="A[]" onclick="checkOnlyOne1(this);"/>
+                            <input type="checkbox" value='영어회화' onclick="checkOnlyOne1(this);" name="A[]" />
                             <span class="icon"></span>
                             <span class="test">영어회화</span>
                         </label>
 
                         <label class="checkbox">
-                            <input type="checkbox" value='영미 문학 읽기' name="A[]" onclick="checkOnlyOne1(this);"/>
+                            <input type="checkbox" value='영미 문학 읽기' onclick="checkOnlyOne1(this);" name="A[]"/>
                             <span class="icon"></span>
                             <span class="test">영미 문학 읽기</span>
                         </label>
